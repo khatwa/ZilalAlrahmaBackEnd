@@ -1,18 +1,15 @@
 import { addMeeting, getMeetingInfo, getOrgMeetings } from '../Controllers'
 import { Router } from 'express'
-import Adapter from '../Helpers/express-adapter'
+import { protectedAdapter } from '../Decorators'
 
 const router = Router()
 
-router.post('/addMeeting/:orgId', Adapter(addMeeting, { isPublicRoute: false }))
+router.post('/addMeeting/:orgId', protectedAdapter(addMeeting))
 
-router.get('/:id', Adapter(getMeetingInfo, { isPublicRoute: false }))
+router.get('/:id', protectedAdapter(getMeetingInfo))
 
-router.get(
-  '/orgMeetings/:orgId',
-  Adapter(getOrgMeetings, { isPublicRoute: false })
-)
+router.get('/orgMeetings/:orgId', protectedAdapter(getOrgMeetings))
 
-router.put('/meeting/:id', Adapter(null, { isPublicRoute: false }))
+router.put('/meeting/:id', protectedAdapter(null))
 
 export default router

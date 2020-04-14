@@ -1,35 +1,19 @@
-import {
-  loginController,
-  signupController,
-  restorePointController,
-  restorePointVerifyController,
-  restorePointResetController,
-} from '../Controllers'
+import { login, signup, restorePoint, restorePointVerify, restorePointReset, } from '../Controllers'
+
 import { Router } from 'express'
-import expressAdapter from '../Helpers/express-adapter'
+
+import { publicAdapter } from '../Decorators'
 
 const router = Router()
 
-router.post('/login', expressAdapter(loginController, { isPublicRoute: true }))
+router.post('/login', publicAdapter(login))
 
-router.post(
-  '/signup',
-  expressAdapter(signupController, { isPublicRoute: true })
-)
+router.post('/signup', publicAdapter(signup))
 
-router.post(
-  '/restorePassword/',
-  expressAdapter(restorePointController, { isPublicRoute: true })
-)
+router.post('/restorePassword/', publicAdapter(restorePoint))
 
-router.post(
-  '/restorePassword/verify',
-  expressAdapter(restorePointVerifyController, { isPublicRoute: true })
-)
+router.post('/restorePassword/verify', publicAdapter(restorePointVerify))
 
-router.post(
-  '/restorePassword/reset',
-  expressAdapter(restorePointResetController, { isPublicRoute: true })
-)
+router.post('/restorePassword/reset', publicAdapter(restorePointReset))
 
 export default router

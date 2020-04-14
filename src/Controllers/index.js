@@ -18,13 +18,13 @@ import { createHash as hash, signToken } from '../security'
 import UseCases from '../Use-cases'
 // UseCases.addSupport
 // export as individual
-export const signupController = SignupFactory(UseCases)
-export const loginController = LoginFactory(UseCases, hash, signToken)
-export const restorePointController = RestorePasswordFactory(UseCases)
-export const restorePointVerifyController = RestorePasswordVerifyFactory(
+export const signup = SignupFactory(UseCases)
+export const login = LoginFactory(UseCases, hash, signToken)
+export const restorePoint = RestorePasswordFactory(UseCases)
+export const restorePointVerify = RestorePasswordVerifyFactory(
   UseCases
 )
-export const restorePointResetController = RestorePasswordResetFactory(UseCases)
+export const restorePointReset = RestorePasswordResetFactory(UseCases)
 export const addNewOrg = AddNewOrgFactory(UseCases)
 export const addMeeting = AddMeetingFactory(UseCases)
 export const addPost = AddPostFactory(UseCases)
@@ -55,33 +55,3 @@ export const getOrgSupporters = GetItemByIdFactory(UseCases.getOrgSupporters)
 export const getAllCategories = GetItemByIdFactory(UseCases.getAllCategories)
 export const getAllOrgs = GetItemByIdFactory(UseCases.getAllOrgs)
 
-// export as object for convention
-export default {
-  signupController,
-  loginController,
-  restorePointController,
-  restorePointVerifyController,
-  restorePointResetController,
-  addNewOrg,
-  addMeeting,
-  addPost,
-  addSupporter,
-  addVolunteer,
-  addVolunteerCategory,
-  // get item by their ids
-  getOrgProfile,
-  getUserProfile,
-  getVolunteerCategory,
-  getPostInfo,
-  getMeetingInfo,
-  getSupporterInfo,
-  getVolunteerInfo,
-  // get item by their org ids
-  getOrgPosts,
-  getOrgMeetings,
-  getOrgVolunteers,
-  getOrgSupporters,
-  // get all items
-  getAllCategories,
-  getAllOrgs,
-}

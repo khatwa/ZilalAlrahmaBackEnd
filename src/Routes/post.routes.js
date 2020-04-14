@@ -1,13 +1,13 @@
 import { addPost, getPostInfo, getOrgPosts } from '../Controllers'
 import { Router } from 'express'
-import Adapter from '../Helpers/express-adapter'
+import { protectedAdapter } from '../Decorators'
 
 const router = Router()
 
-router.post('/addPost/:orgId', Adapter(addPost, { isPublicRoute: false }))
+router.post('/addPost/:orgId', protectedAdapter(addPost))
 
-router.get('/:id', Adapter(getPostInfo, { isPublicRoute: false }))
+router.get('/:id', protectedAdapter(getPostInfo))
 
-router.get('/orgPosts/:orgId', Adapter(getOrgPosts, { isPublicRoute: false }))
+router.get('/orgPosts/:orgId', protectedAdapter(getOrgPosts))
 
 export default router

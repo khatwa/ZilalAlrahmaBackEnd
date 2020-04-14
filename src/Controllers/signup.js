@@ -1,9 +1,9 @@
-export default function SignupFactory({ signup }) {
+export default function SignupFactory({ addUser }) {
   // request identifier will run the controller
   return function Controller({ body }) {
     return new Promise(async (resolve, reject) => {
       // signup is a use case that injected to the factory
-      signup(body)
+      addUser(body)
         .then(res => {
           resolve(res)
         })

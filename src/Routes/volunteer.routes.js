@@ -7,30 +7,30 @@ import {
   getAllCategories,
 } from '../Controllers'
 import { Router } from 'express'
-import Adapter from '../Helpers/express-adapter'
+import { protectedAdapter } from '../Decorators'
 
 const router = Router()
 
 router.post(
   '/volunteerCategory/new',
-  Adapter(addVolunteerCategory, { isPublicRoute: false })
+  protectedAdapter(addVolunteerCategory)
 )
 router.post(
   '/addVolunteer/:orgId',
-  Adapter(addVolunteer, { isPublicRoute: false })
+  protectedAdapter(addVolunteer)
 )
 router.get(
   '/volunteerCategories/:id',
-  Adapter(getVolunteerCategory, { isPublicRoute: false })
+  protectedAdapter(getVolunteerCategory)
 )
-router.get('/:id', Adapter(getVolunteerInfo, { isPublicRoute: false }))
+router.get('/:id', protectedAdapter(getVolunteerInfo))
 router.get(
   '/orgVolunteers/:orgId',
-  Adapter(getOrgVolunteers, { isPublicRoute: false })
+  protectedAdapter(getOrgVolunteers)
 )
 router.get(
   '/volunteerCategories',
-  Adapter(getAllCategories, { isPublicRoute: false })
+  protectedAdapter(getAllCategories)
 )
 
 export default router

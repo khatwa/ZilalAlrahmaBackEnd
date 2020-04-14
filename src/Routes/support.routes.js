@@ -4,20 +4,20 @@ import {
   addSupporter,
 } from '../Controllers'
 import { Router } from 'express'
-import Adapter from '../Helpers/express-adapter'
+import { protectedAdapter } from '../Decorators'
 
 const router = Router()
 
 router.post(
   '/addSupporter/:orgId',
-  Adapter(addSupporter, { isPublicRoute: false })
+  protectedAdapter(addSupporter)
 )
 
-router.get('/:id', Adapter(getSupporterInfo, { isPublicRoute: false }))
+router.get('/:id', protectedAdapter(getSupporterInfo))
 
 router.get(
   '/orgSupporters/:orgId',
-  Adapter(getOrgSupporters, { isPublicRoute: false })
+  protectedAdapter(getOrgSupporters)
 )
 
 export default router

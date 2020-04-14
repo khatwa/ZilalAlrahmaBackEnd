@@ -1,12 +1,3 @@
-/**
- * ==================================================
- * ==================================================
- * ===== WHAT NEXT: Names are inconsistent.     =====
- * ===== TODO: Make factory's names consistent. =====
- * ==================================================
- * ==================================================
- */
-
 import loginFactory from './login-user'
 import AddUserFactory from './add-user'
 import AddOrgFactory from './add-org'

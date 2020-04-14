@@ -33,7 +33,7 @@ export default function UseCaseFactory(targetModel, { insert, findOne }) {
         // check if insert is not work
         if (insertedData.hasDatabaseError) reject(insertedData)
 
-        const { password, ...dataToReturn } = insertedData.data._doc
+        const { password, orgId, ...dataToReturn } = insertedData.data._doc
 
         resolve({
           status: 200,
