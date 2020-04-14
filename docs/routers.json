@@ -1,0 +1,265 @@
+{
+    "authentication": [
+        {
+            "routerName": "/auth/login",
+            "type": "public",
+            "method": "post",
+            "body": "{email: string, password: string}",
+            "headers": "none",
+            "params": "none",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/auth/restorePassword",
+            "type": "public",
+            "method": "post",
+            "body": "{data: string(eamil) || number(phone)}",
+            "headers": "none",
+            "params": "none",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/auth/restorePassword/verify",
+            "type": "public",
+            "method": "post",
+            "body": "{hash: string, code: number}",
+            "headers": "none",
+            "params": "none",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/auth/restorePassword/reset",
+            "type": "public",
+            "method": "post",
+            "body": "{token: string, password: string, confirmPassword: string}",
+            "headers": "none",
+            "params": "none",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/auth/restorePassword/",
+            "type": "public",
+            "method": "post",
+            "body": "{data: string || number}",
+            "headers": "none",
+            "params": "none",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/auth/restorePassword/verify",
+            "type": "public",
+            "method": "post",
+            "body": "{code: number, hash: string}",
+            "headers": "none",
+            "params": "none",
+            "query": "none",
+            "response": "object"
+        }
+    ],
+    "organizations": [
+        {
+            "routerName": "/api/organizations/addOrg/new",
+            "type": "public",
+            "method": "post",
+            "body": "{firstName: string,lastName: string, email: string, phone: number,address: string,isOwner: boolean,isPartner: boolean,password: string,orgName: string,logo: string,orgAddress: string,aboutOrg: string,orgPhone: number,orgVolunteerPhones: array}",
+            "headers": "none",
+            "params": "none",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/api/organizations/orgProfile/:id",
+            "type": "protected",
+            "method": "get",
+            "body": "none",
+            "headers": "authorization",
+            "params": "org id",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/api/organizations/userProfile/:id",
+            "type": "protected",
+            "method": "get",
+            "body": "none",
+            "headers": "authorization",
+            "params": "user id",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/api/organizations/getAllOrgs/",
+            "type": "protected",
+            "method": "get",
+            "body": "none",
+            "headers": "authorization",
+            "params": "none",
+            "query": "none",
+            "response": "array"
+        }
+    ],
+    "posts": [
+        {
+            "routerName": "/api/posts/addPost/:orgId",
+            "type": "protected",
+            "method": "post",
+            "body": "{createdBy: string| userId, title: string, post: string, image: file}",
+            "headers": "authorization",
+            "params": "org id",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/api/posts/:id",
+            "type": "protected",
+            "method": "get",
+            "body": "none",
+            "headers": "authorization",
+            "params": "post id",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/api/posts/orgPosts/:orgId",
+            "type": "protected",
+            "method": "get",
+            "body": "none",
+            "headers": "authorization",
+            "params": "org id",
+            "query": "none",
+            "response": "array"
+        }
+    ],
+    "meetings": [
+        {
+            "routerName": "/api/meetings/addMeeting/:orgId",
+            "type": "protected",
+            "method": "post",
+            "body": "{createdBy:string | userId, purpose: string , address: string ,notes: string, meetingDate:date}",
+            "headers": "authorization",
+            "params": "org id",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/api/meetings/:id",
+            "type": "protected",
+            "method": "get",
+            "body": "none",
+            "headers": "authorization",
+            "params": "meeting id",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/api/meetings/orgMeetings/:orgId",
+            "type": "protected",
+            "method": "get",
+            "body": "none",
+            "headers": "authorization",
+            "params": "org id",
+            "query": "none",
+            "response": "array"
+        }
+    ],
+    "volunteers": [
+        {
+            "routerName": "/api/volunteers/addVolunteer/:orgId",
+            "type": "protected",
+            "method": "post",
+            "body": "{volunteerCategory:string | id, firstName:string, lastName:string, phone:number, address:string, email:string, password:string, amount:number, notes: string}",
+            "headers": "authorization",
+            "params": "org id",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/api/volunteers/:id",
+            "type": "protected",
+            "method": "get",
+            "body": "none",
+            "headers": "authorization",
+            "params": "volunteer id",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/api/volunteers/orgVolunteers/:orgId",
+            "type": "protected",
+            "method": "get",
+            "body": "none",
+            "headers": "authorization",
+            "params": "volunteer id",
+            "query": "none",
+            "response": "array"
+        },
+        {
+            "routerName": "/api/volunteers/volunteersCategory/new",
+            "type": "protected",
+            "method": "post",
+            "body": "{name: string, description: string}",
+            "headers": "authorization",
+            "params": "none",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/api/volunteers/volunteerCategories/:id",
+            "type": "protected",
+            "method": "get",
+            "body": "none",
+            "headers": "authorization",
+            "params": "vc id",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/api/volunteers/volunteerCategories",
+            "type": "protected",
+            "method": "get",
+            "body": "none",
+            "headers": "authorization",
+            "params": "none",
+            "query": "none",
+            "response": "array"
+        }
+    ],
+    "supporters": [
+        {
+            "routerName": "/api/supporters/addSupporters/:orgId",
+            "type": "protected",
+            "method": "post",
+            "body": "{volunteerCategory:string | id, firstName:string, lastName:string, phone:number, address:string, email:string, password:string, amount:number, notes: string}",
+            "headers": "authorization",
+            "params": "org id",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/api/supporters/:id",
+            "type": "protected",
+            "method": "get",
+            "body": "none",
+            "headers": "authorization",
+            "params": "supporter id",
+            "query": "none",
+            "response": "object"
+        },
+        {
+            "routerName": "/api/supporters/orgSupporters/:orgId",
+            "type": "protected",
+            "method": "get",
+            "body": "none",
+            "headers": "authorization",
+            "params": "org id",
+            "query": "none",
+            "response": "array"
+        }
+    ]
+}
+

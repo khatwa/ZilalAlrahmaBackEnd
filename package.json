@@ -1,16 +1,46 @@
 {
-  "name": "zilalbackend",
-  "version": "0.0.0",
-  "private": true,
+  "name": "zilal",
+  "version": "0.1.0",
+  "description": "this api is for zilal alrahma",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "test": "jest src --watch",
+    "dev": "nodemon --exec babel-node ./src/index.js",
+    "start": "npm run clean && npm run build && cd dist && node index.js",
+    "install": "npm install",
+    "build": "npm run clean && babel src -d dist",
+    "clean": "rm -rf dist",
+    "format": "prettier --write './src/*.js"
+  },
+  "author": "ScriptHouse",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-typescript": "^7.8.3",
+    "babel-jest": "^25.1.0",
+    "babel-plugin-inline-dotenv": "^1.5.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-typescript": "^0.14.0",
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.5"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "ejs": "~2.6.1",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "express": "^4.17.1",
+    "http-errors": "^1.7.3",
+    "http-status-codes": "^1.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.9.2",
+    "mongoose-autopopulate": "^0.12.0",
+    "multer": "^1.4.2",
+    "validator": "^12.2.0"
   }
 }
