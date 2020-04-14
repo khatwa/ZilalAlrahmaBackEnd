@@ -25,11 +25,12 @@ export const isLength = (item, options) => {
   return validator.isLength(item, options)
 }
 
+
 export const isMongoId = id => validator.isMongoId(id)
 
 export const isBoolean = item => validator.isBoolean(item)
 
-export const isMobilePhone = item => /[0-9]{10}/.test(item)
+export const isMobilePhone = item => /[1-9]{9}/.test(item)
 
 export const isBefore = date => validator.isBefore(date, new Date().toString())
 
